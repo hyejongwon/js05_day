@@ -38,9 +38,57 @@
     </ul>
 </div>
 <script>
-  
+    const typeA = document.querySelectorAll('.type-a');
+    const typeB = document.querySelectorAll('.type-b');
+    const typeC = document.querySelectorAll('.type-c');
+
+    typeA.forEach((ele)=>{
+        ele.addEventListener('mouseover',(e)=>{
+            e.target.style.borderRadius='20%';
+            e.target.style.borderWidth='3px';
+        })
+        ele.addEventListener('mouseout',(e)=>{
+            e.target.style.borderRadius='50%';
+            e.target.style.borderWidth='5px';
+        })
+    })
+
+    typeB.forEach((ele) =>{
+        ele.addEventListener('mouseover',e=>{
+            e.target.children[0].style.top='0px';
+        })
+        ele.addEventListener('mouseout',e=>{
+            e.target.children[0].style.top='-30px';
+        })
+    })
+
+    typeC.forEach((ele) =>{
+        ele.addEventListener('mouseenter',e=>{ 
+            e.target.children[0].style.top='-200px';
+         })
+        ele.addEventListener('mouseleave',e=>{ 
+            e.target.children[0].style.top='0px';
+         })
+    })
+
+
+   /* 타입 A */
 </script>
 </body>
 </html>
+
+<!-- 
+ click 
+ keydown 
+ mousemove 
+ mouseover
+ mouseout 
+ mouseenter
+ mouseleave 
+ scroll 
+
+ function(){}  this  => 이함수가 적용되는 현재 대상객체 
+ ()=>{}  this => 최상위 객체 
+ -->
 
 

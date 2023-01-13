@@ -18,7 +18,7 @@ body{background: #555}
 .side-b{}
 
 
-.type-a{width: 70px;height: 70px;border-radius: 50%}
+.type-a{width: 70px;height: 70px;border-radius:50%}
 .type-b{width: 210px;height: 70px}
 .type-b img{position: relative;top:-30px}
 .type-c{width: 340px;height: 120px;background: #fff;line-height: 120px;font-size: 60px;font-family: 'arial';color:#ddd;text-align: center}
