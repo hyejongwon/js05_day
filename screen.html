@@ -37,8 +37,51 @@
     <!--//컨트롤-->
 
     <script>
+     const icons = document.querySelector('#icons'); //#icons 
+     const icon= document.querySelectorAll('#icons>a');//#icons>a 
+     const prevBtn = document.querySelector('.prev');//.prev
+     const nextBtn = document.querySelector('.next');//.next
+     const imgslider = document.querySelector('#imgslider') //#imgslider 
      
-       
+     //아이콘 클릭시 슬라이드 
+     icon.forEach((ele)=>{
+        ele.addEventListener('click',(e)=>{
+            let selectedIcon = e.target; 
+            let indexNum = selectedIcon.dataset.index ; 
+            let targetPostion = indexNum * -960 ; 
+            imgslider.style.left = `${targetPostion}px` ;
+            selectIconUpdate(selectedIcon); //selectIconUpdate 호출 
+            current = indexNum ;
+            console.log(current)
+        })
+     })
+
+    // 아이콘 클릭시 클릭된 아이콘에 클래스 적용 
+    let selectIconUpdate = (selectedIcon) =>{ 
+        icon.forEach(ele=>ele.classList.remove('on')) // 전체지우고 
+        selectedIcon.classList.add('on') //선택된 아이콘만 클래스 적용 
+    }
+
+    //next prev 버튼 컨틑롤 
+     let current = 0 ;
+     let controlEvent = new Event('click') ; 
+     prevBtn.addEventListener('click',()=>{
+        current--;
+        if(current<0) current = 4 ;
+        icon[current].dispatchEvent(controlEvent);
+     })
+
+     nextBtn.addEventListener('click',()=>{
+        current++;
+        if(current>4) current = 0 ;
+        icon[current].dispatchEvent(controlEvent);
+     })
     </script>
 </body>
 </html>
+
+<!-- 
+대상객체.dispatchEvent(이벤트) 강제로 이벤트를 발생 시킨다. 
+
+
+ -->
