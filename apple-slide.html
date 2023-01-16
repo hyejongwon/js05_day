@@ -30,8 +30,22 @@
     <div class="imglist"><img src="img/slide/item.png" alt="" id='imgSlider'></div>
     <p class="title">Apple</p>
     <script>
-  
+        const list = document.querySelectorAll('.list>li'); // 버튼에 해당하는 li 
+        const listBox = document.querySelector('.list'); // li이벤트를 위임하기 위한 상위요소 
+        const title = document.querySelector('.title'); // 타이틀이 출력될 문단 p 
+        const imgSlider = document.querySelector('#imgSlider') ; //슬라이더 이미지 
        
+        listBox.addEventListener('click',(e)=>{
+            let seletedItem = e.target ; 
+            let seletedIndex  = seletedItem.dataset.index  ;   //data-index을 받아서 변수에 저장 
+            let targetPos = -250 * seletedIndex ; 
+            let seletedText = seletedItem.innerText; 
+            console.log(targetPos);
+            imgSlider.style.left = `${targetPos}px` ;
+            title.innerText = seletedText ;
+
+        })
+        
     </script>
 </body>
 </html>
